@@ -1,13 +1,11 @@
 const products = require('../products.json');
 
-
-const getProduct =  (request, respond) => {
-    const item = product.find(val => val.id === parseInt(req.params.id));
+const getProduct = (req, res) => {
+    const item = products.find(val => val.id === parseInt(req.params.id));
     if (!item) {
-        return respond.status(500).send("Item not in list");
-        
+        return res.status(500).send("Item not in list");
     }
-    respond.status(200).send(item);
+    res.status(200).send(item);
 }
 
-module.exports = getProduct
+module.exports = getProduct;
